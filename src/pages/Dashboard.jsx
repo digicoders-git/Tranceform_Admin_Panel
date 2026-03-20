@@ -90,8 +90,6 @@ const Dashboard = () => {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
-        .stat-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(169,124,82,0.12) !important; }
-        .stat-card { transition: all 0.2s ease !important; cursor: pointer; }
         .activity-row:hover { background: #fdf8f4 !important; }
         .view-all:hover { color: #3d4f8a !important; }
       `}</style>
@@ -161,18 +159,17 @@ const Dashboard = () => {
       {/* ── Stat Cards ── */}
       <div className="stat-cards-grid">
         {statCards.map(({ label, value, sub, icon: Icon, color, bg, border, route }) => (
-          <div key={label} className="stat-card" onClick={() => navigate(route)}
-            style={{ background: 'white', borderRadius: '16px', padding: '20px', border: '1px solid #e5e7eb', boxShadow: '0 2px 8px rgba(81,104,175,0.04)' }}>
+          <div key={label} className="stat-card" onClick={() => navigate(route)}>
             {/* Icon */}
-            <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: bg, border: `1px solid ${border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
+            <div className="icon-wrapper" style={{ width: '46px', height: '46px', borderRadius: '12px', background: bg, border: `1px solid ${border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
               <Icon size={20} color={color} />
             </div>
             {/* Value */}
-            <div style={{ fontSize: '32px', fontWeight: '800', color: '#111827', fontFamily: "'Source Sans 3', sans-serif", lineHeight: 1, marginBottom: '6px' }}>{value}</div>
+            <h3>{value}</h3>
             {/* Label */}
-            <div style={{ fontSize: '12px', fontWeight: '700', color: '#111827', marginBottom: '3px' }}>{label}</div>
+            <div className="label">{label}</div>
             {/* Sub */}
-            <div style={{ fontSize: '11px', color: '#9ca3af', fontWeight: '500' }}>{sub}</div>
+            <div className="subtext">{sub}</div>
             {/* Arrow */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginTop: '12px', paddingTop: '12px', borderTop: '1px solid #e5e7eb' }}>
               <span style={{ fontSize: '11px', color: '#5168AF', fontWeight: '600' }}>View all</span>
