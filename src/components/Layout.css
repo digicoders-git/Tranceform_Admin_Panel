@@ -20,14 +20,16 @@
   .main-content {
     margin-left: 0 !important;
     width: 100% !important;
-    padding: 20px;
-    padding-top: 70px; /* Space for the mobile menu button */
+    padding: 15px; /* Base padding for content */
+    padding-top: 0 !important; /* Removed top padding to allow sticky header to align with menu */
+    overflow-x: hidden; /* Prevent horizontal scroll from sticky headers */
   }
 }
 
 @media (max-width: 640px) {
   .main-content {
-    padding: 15px;
-    padding-top: 70px;
+    padding: 10px;
+    padding-top: 0 !important;
+    overflow-x: hidden;
   }
 }

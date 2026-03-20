@@ -153,10 +153,9 @@ const Testimonials = () => {
 
       {modal && <Modal testimonial={modal === 'add' ? null : modal} onClose={() => setModal(null)} onSave={save} />}
 
-      {/* ── Page Header ── */}
-      <div style={{ borderBottom: '1px solid #f0e8df', paddingBottom: '20px' }}>
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
-          <div>
+      <div className="page-header">
+        <div className="page-header-inner">
+          <div className="title-section">
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
               <div style={{ width: '3px', height: '28px', background: 'linear-gradient(to bottom, #5168AF, #3d4f8a)', borderRadius: '2px' }} />
               <h2 style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: '26px', fontWeight: '700', color: '#0a0f1a', margin: 0 }}>

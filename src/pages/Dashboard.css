@@ -7,8 +7,73 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 16px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notification-bell {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  padding: 0;
+}
+
+.notification-bell:hover {
+  border-color: #EE6F36;
+  background: #fff7ed;
+}
+
+.live-clock-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 8px 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.clock-icon-wrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: #f0f4ff;
+  border: 1px solid #5168AF20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-label {
+  font-size: 8px;
+  font-weight: 800;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 1px;
+}
+
+.clock-value {
+  font-size: 13px;
+  font-weight: 800;
+  color: #111827;
+  font-family: 'Source Sans 3', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 /* Stat Cards: 5 boxes in one line on Desktop */
@@ -74,12 +139,55 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .dashboard-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: #f8fafc;
+    margin: 0 -15px 20px -15px;
+    padding: 25px 15px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    width: auto; /* Use auto width with negative margins */
+    box-sizing: border-box;
+  }
+
+  /* Align greeting with the mobile menu button */
+  .dashboard-header-inner > div:first-child {
+    padding-left: 54px;
+    margin-bottom: 0px; 
+  }
+}
+
 @media (max-width: 768px) {
   .dashboard-header-inner {
     flex-direction: column;
     align-items: flex-start;
+    gap: 14px;
   }
-  
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .live-clock-card {
+    flex: 1;
+    padding: 6px 12px;
+    justify-content: center;
+  }
+
+  .notification-bell {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .clock-icon-wrapper {
+    display: none; /* Hide icon on very small screens to save space */
+  }
+
   .activity-grid {
     grid-template-columns: 1fr;
   }

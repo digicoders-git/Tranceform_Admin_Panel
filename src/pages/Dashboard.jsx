@@ -111,18 +111,11 @@ const Dashboard = () => {
             </p>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div className="header-actions">
             {/* Notification Bell */}
             <button
               onClick={() => navigate('/notifications')}
-              style={{
-                position: 'relative', width: '44px', height: '44px',
-                borderRadius: '16px', background: 'white', border: '1px solid #e5e7eb',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 4px 12px rgba(0,0,0,0.03)'
-              }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = '#EE6F36'; e.currentTarget.style.background = '#fff7ed'; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = '#e5e7eb'; e.currentTarget.style.background = 'white'; }}
+              className="notification-bell"
             >
               <Bell size={20} color="#5168AF" />
               {(data?.unreadMessages > 0 || data?.pendingAppointments > 0) && (
@@ -140,13 +133,13 @@ const Dashboard = () => {
             </button>
 
             {/* Live Clock */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'white', border: '1px solid #e5e7eb', borderRadius: '16px', padding: '10px 18px', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
-              <div style={{ width: '34px', height: '34px', borderRadius: '10px', background: '#f0f4ff', border: '1px solid #5168AF20', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="live-clock-card">
+              <div className="clock-icon-wrapper">
                 <Clock size={14} color="#5168AF" />
               </div>
               <div>
-                <p style={{ fontSize: '9px', fontWeight: '800', color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.5px', margin: '0 0 1px' }}>Live Time</p>
-                <span style={{ fontSize: '14px', fontWeight: '800', color: '#111827', fontFamily: "'Source Sans 3', sans-serif", letterSpacing: '0.5px' }}>
+                <p className="clock-label">Live Time</p>
+                <span className="clock-value">
                   {time.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
                 </span>
               </div>

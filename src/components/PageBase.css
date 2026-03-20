@@ -41,6 +41,26 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .page-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: #f8fafc;
+    margin: 0 -15px 20px -15px;
+    padding: 25px 15px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    width: auto;
+    box-sizing: border-box;
+  }
+
+  /* Align title with the mobile menu button */
+  .page-header-inner > div:first-child {
+    padding-left: 54px;
+    margin-bottom: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .page-header-inner {
     flex-direction: column;

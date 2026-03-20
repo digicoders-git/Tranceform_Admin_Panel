@@ -168,13 +168,14 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
         className="lg:hidden"
         style={{
           position: 'fixed', top: '16px', left: '16px', zIndex: 50,
-          width: '40px', height: '40px', background: '#1a2332',
-          border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px',
-          color: 'white', alignItems: 'center',
+          width: '44px', height: '44px', background: 'white',
+          border: '1px solid #e5e7eb', borderRadius: '14px',
+          color: '#5168AF', display: 'flex', alignItems: 'center',
           justifyContent: 'center', cursor: 'pointer',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.06)'
         }}
       >
-        <Menu size={18} />
+        <Menu size={22} />
       </button>
 
       {/* Mobile Overlay */}

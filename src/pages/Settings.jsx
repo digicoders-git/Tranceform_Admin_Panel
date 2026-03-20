@@ -135,39 +135,39 @@ const Settings = () => {
 
       {toast && <Toast msg={toast.msg} type={toast.type} />}
 
-      {/* ── Page Header ── */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid #f0e8df', paddingBottom: '16px' }}>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
-            <div style={{ width: '3px', height: '24px', background: 'linear-gradient(to bottom, #5168AF, #3d4f8a)', borderRadius: '2px' }} />
-            <h2 style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: '24px', fontWeight: '700', color: '#0a0f1a', margin: 0 }}>Settings</h2>
+      <div className="page-header">
+        <div className="page-header-inner">
+          <div className="title-section">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
+              <div style={{ width: '3px', height: '24px', background: 'linear-gradient(to bottom, #5168AF, #3d4f8a)', borderRadius: '2px' }} />
+              <h2 style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: '24px', fontWeight: '700', color: '#0a0f1a', margin: 0 }}>Settings</h2>
+            </div>
+            <p style={{ fontSize: '13px', color: '#6b7280', margin: '0 0 0 13px' }}>Manage your admin account credentials</p>
           </div>
-          <p style={{ fontSize: '13px', color: '#6b7280', margin: '0 0 0 13px' }}>Manage your admin account credentials</p>
-        </div>
 
-        {/* Tab Switcher */}
-        <div style={{ display: 'flex', background: '#f4f6f9', padding: '4px', borderRadius: '12px', border: '1px solid #f0e8df' }}>
-          {['profile', 'security'].map(tab => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              style={{
-                padding: '8px 20px', borderRadius: '8px', fontSize: '13px', fontWeight: '600',
-                border: 'none', cursor: 'pointer', transition: 'all 0.2s',
-                background: activeTab === tab ? 'white' : 'transparent',
-                color: activeTab === tab ? '#5168AF' : '#9ca3af',
-                boxShadow: activeTab === tab ? '0 2px 8px rgba(81,104,175,0.1)' : 'none',
-                textTransform: 'capitalize',
-              }}
-            >
-              {tab}
-            </button>
-          ))}
+          {/* Tab Switcher */}
+          <div style={{ display: 'flex', background: '#f4f6f9', padding: '4px', borderRadius: '12px', border: '1px solid #f0e8df', flexShrink: 0 }}>
+            {['profile', 'security'].map(tab => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                style={{
+                  padding: '8px 20px', borderRadius: '8px', fontSize: '13px', fontWeight: '600',
+                  border: 'none', cursor: 'pointer', transition: 'all 0.2s',
+                  background: activeTab === tab ? 'white' : 'transparent',
+                  color: activeTab === tab ? '#5168AF' : '#9ca3af',
+                  boxShadow: activeTab === tab ? '0 2px 8px rgba(81,104,175,0.1)' : 'none',
+                  textTransform: 'capitalize',
+                }}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* ── Two Column Layout ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,2fr)', gap: '24px', alignItems: 'start' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', alignItems: 'start' }}>
 
         {/* ── Left — Profile Card ── */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
