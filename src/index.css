@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  background: #f8fafc;
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  border: none;
+  min-height: 100svh;
+}
+
+h1, h2, h3, h4, h5 { font-family: 'Source Sans 3', sans-serif; font-weight: 700; }
+h1 { font-size: 36px; }
+h2 { font-size: 30px; }
+h3 { font-size: 24px; }
+h4 { font-size: 20px; }
+h5 { font-size: 18px; }
+
+p  { font-size: 16px; line-height: 1.7; }
+span { font-size: 15px; }
+label { font-size: 15px; }
+td, th { font-size: 15px; }
+button { font-size: 15px; }
+input, textarea, select { font-size: 15px; }
