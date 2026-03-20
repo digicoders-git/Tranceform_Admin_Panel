@@ -1,0 +1,33 @@
+.layout-container {
+  display: flex;
+  height: 100vh;
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+  padding: 30px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  height: 100vh;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 20px;
+    padding-top: 70px; /* Space for the mobile menu button */
+  }
+}
+
+@media (max-width: 640px) {
+  .main-content {
+    padding: 15px;
+    padding-top: 70px;
+  }
+}

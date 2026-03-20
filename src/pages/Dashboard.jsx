@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 
 import API_URL from '../config';
+import './Dashboard.css';
 
 const API = API_URL;
 
@@ -96,8 +97,8 @@ const Dashboard = () => {
       `}</style>
 
       {/* ── Header ── */}
-      <div style={{ borderBottom: '1px solid #f0e8df', paddingBottom: '20px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+      <div className="dashboard-header">
+        <div className="dashboard-header-inner">
 
           {/* Greeting */}
           <div>
@@ -158,7 +159,7 @@ const Dashboard = () => {
 
 
       {/* ── Stat Cards ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(175px, 1fr))', gap: '14px' }}>
+      <div className="stat-cards-grid">
         {statCards.map(({ label, value, sub, icon: Icon, color, bg, border, route }) => (
           <div key={label} className="stat-card" onClick={() => navigate(route)}
             style={{ background: 'white', borderRadius: '16px', padding: '20px', border: '1px solid #e5e7eb', boxShadow: '0 2px 8px rgba(81,104,175,0.04)' }}>
@@ -182,7 +183,7 @@ const Dashboard = () => {
       </div>
 
       {/* ── Recent Activity ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '16px' }}>
+      <div className="activity-grid">
 
         {/* Recent Appointments */}
         <div style={{ background: 'white', borderRadius: '16px', border: '1px solid #f0e8df', boxShadow: '0 2px 8px rgba(169,124,82,0.06)', overflow: 'hidden' }}>

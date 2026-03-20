@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { CalendarCheck, Trash2, ChevronDown, Clock, User, Mail, Phone, Briefcase, Download, Check, X } from 'lucide-react';
-
 import API_URL from '../config';
+import '../components/PageBase.css';
 
 const API = API_URL;
 
@@ -132,8 +132,8 @@ const Appointments = () => {
       `}</style>
 
       {/* ── Page Header ── */}
-      <div style={{ borderBottom: '1px solid #f0e8df', paddingBottom: '20px' }}>
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+      <div className="page-header">
+        <div className="page-header-inner">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
               <div style={{ width: '3px', height: '28px', background: 'linear-gradient(to bottom, #5168AF, #3d4f8a)', borderRadius: '2px' }} />
@@ -147,7 +147,7 @@ const Appointments = () => {
           </div>
 
           {/* Stats Row */}
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <div className="stats-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             {[
               { label: 'Total', value: counts.All, color: '#1a2332', bg: '#f4f6f9' },
               { label: 'Pending', value: counts.Pending, color: '#b45309', bg: '#fffbeb' },
@@ -204,7 +204,7 @@ const Appointments = () => {
       </div>
 
       {/* ── Main Content ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: selected ? '1fr 340px' : '1fr', gap: '16px', flex: 1, minHeight: 0 }}>
+      <div className={`split-layout ${selected ? 'with-detail' : 'no-detail'}`}>
 
         {/* Table Card */}
         <div style={{ background: 'white', borderRadius: '16px', border: '1px solid #f0e8df', boxShadow: '0 2px 12px rgba(169,124,82,0.06)', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
@@ -230,7 +230,7 @@ const Appointments = () => {
               <p style={{ fontSize: '13px', color: '#9ca3af', margin: 0 }}>Try changing the filter above</p>
             </div>
           ) : (
-            <div style={{ overflowX: 'auto', flex: 1 }}>
+            <div className="table-container">
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
                   <tr style={{ background: '#fdf8f4' }}>
@@ -375,7 +375,7 @@ const Appointments = () => {
 
         {/* ── Detail Panel ── */}
         {selected && (
-          <div style={{
+          <div className="detail-panel" style={{
             background: 'white', borderRadius: '16px',
             border: '1px solid #f0e8df', boxShadow: '0 2px 12px rgba(169,124,82,0.06)',
             overflow: 'hidden', display: 'flex', flexDirection: 'column',

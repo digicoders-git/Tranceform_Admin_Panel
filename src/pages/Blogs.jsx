@@ -5,6 +5,8 @@ import { BookOpen, Plus, Trash2, Pencil, X, Check, Clock, Tag, AlignLeft, Image,
 import API_URL from '../config';
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
+import '../components/PageBase.css';
+import './Blogs.css';
 
 const API = API_URL;
 const empty = { id: '', title: '', category: '', date: '', readTime: '', image: '', excerpt: '', content: '' };
@@ -90,12 +92,12 @@ const Modal = ({ blog, onClose, onSave, token }) => {
   };
 
   return (
-    <div style={{ position: 'fixed', inset: 0, background: 'rgba(10,15,26,0.65)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', backdropFilter: 'blur(8px)' }}>
-      <div style={{ background: 'white', borderRadius: '24px', width: '100%', maxWidth: '800px', maxHeight: '94vh', overflow: 'hidden', boxShadow: '0 32px 100px rgba(0,0,0,0.3)', display: 'flex', flexDirection: 'column', animation: 'modalIn 0.3s ease-out' }}>
+    <div className="blog-modal-container">
+      <div className="blog-modal-content">
         <style>{`@keyframes modalIn { from { opacity: 0; transform: translateY(20px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }`}</style>
 
         {/* Modal Header */}
-        <div style={{ background: 'linear-gradient(135deg, #1a2332, #2d3f55)', padding: '24px 30px', position: 'relative', flexShrink: 0 }}>
+        <div className="blog-modal-header" style={{ background: 'linear-gradient(135deg, #1a2332, #2d3f55)', padding: '24px 30px', position: 'relative', flexShrink: 0 }}>
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(to right, #5168AF, #3d4f8a)' }} />
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -117,7 +119,7 @@ const Modal = ({ blog, onClose, onSave, token }) => {
 
         {/* Modal Form */}
         <form onSubmit={submit} style={{ padding: '30px', overflowY: 'auto', flex: 1, background: '#fcfaf7' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 20px' }}>
+          <div className="blog-form-grid">
             <div style={{ gridColumn: '1 / -1' }}>
               <Field label="Blog Title *" name="title" value={form.title} onChange={handle} placeholder="Enter a compelling title..." icon={AlignLeft} required inputStyle={inputStyle} />
             </div>
@@ -210,7 +212,7 @@ const Modal = ({ blog, onClose, onSave, token }) => {
         </form>
 
         {/* Footer */}
-        <div style={{ padding: '20px 30px', background: 'white', borderTop: '1px solid #e8ddd4', display: 'flex', gap: '15px', justifyContent: 'flex-end', flexShrink: 0 }}>
+        <div className="blog-modal-footer" style={{ padding: '20px 30px', background: 'white', borderTop: '1px solid #e8ddd4', display: 'flex', gap: '15px', justifyContent: 'flex-end', flexShrink: 0 }}>
           <button type="button" onClick={onClose} style={{ padding: '12px 25px', borderRadius: '12px', border: '1.5px solid #e8ddd4', background: 'white', color: '#6b7280', fontSize: '14px', fontWeight: '600', cursor: 'pointer' }}>
             Cancel
           </button>
@@ -284,8 +286,8 @@ const Blogs = () => {
       {modal && <Modal blog={modal === 'add' ? null : modal} onClose={() => setModal(null)} onSave={saveBlog} token={token} />}
 
       {/* ── Page Header ── */}
-      <div style={{ borderBottom: '1px solid #f0e8df', paddingBottom: '20px' }}>
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+      <div className="page-header">
+        <div className="page-header-inner">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
               <div style={{ width: '3px', height: '28px', background: 'linear-gradient(to bottom, #5168AF, #3d4f8a)', borderRadius: '2px' }} />
