@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { HelpCircle, Plus, Trash2, Pencil, Check, ChevronDown, Tag, MessageCircle, AlignLeft } from 'lucide-react';
+import API_URL from '../config';
 
-const API = 'http://localhost:5000';
+const API = API_URL;
 
 /* ── Modal ── */
 const Modal = ({ faq, onClose, onSave }) => {

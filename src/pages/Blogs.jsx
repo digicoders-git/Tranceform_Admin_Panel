@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { BookOpen, Plus, Trash2, Pencil, X, Check, Clock, Tag, AlignLeft, Image, Hash } from 'lucide-react';
+import API_URL from '../config';
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 
-const API = 'http://localhost:5000';
+const API = API_URL;
 const empty = { id: '', title: '', category: '', date: '', readTime: '', image: '', excerpt: '', content: '' };
 
 const Field = ({ label, name, placeholder, icon: Icon, value, onChange, type = 'text', required = false, inputStyle }) => (
@@ -61,8 +62,8 @@ const Modal = ({ blog, onClose, onSave, token }) => {
       const res = await axios.post(`${API}/api/upload`, data, {
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' },
       });
-      setForm(prev => ({ ...prev, image: `http://localhost:5000${res.data.url}` }));
-      setPreview(`http://localhost:5000${res.data.url}`);
+      setForm(prev => ({ ...prev, image: `${API}${res.data.url}` }));
+      setPreview(`${API}${res.data.url}`);
     } catch {
       alert('Image upload failed. Try again.');
     } finally {

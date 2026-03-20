@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff, ShieldCheck } from 'lucide-react';
+import API_URL from '../config';
 
 const Login = () => {
   const { login } = useAuth();
@@ -17,7 +18,7 @@ const Login = () => {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', form);
+      const res = await axios.post(`${API_URL}/api/auth/login`, form);
       login(res.data.token);
       navigate('/dashboard');
     } catch {
