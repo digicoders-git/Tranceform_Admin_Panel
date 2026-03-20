@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff, ShieldCheck } from 'lucide-react';
 import API_URL from '../config';
+import './Login.css';
 
 const Login = () => {
   const { login } = useAuth();
@@ -29,15 +30,9 @@ const Login = () => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', background: '#faf9f6' }}>
+    <div className="login-container">
 
-      {/* ── Left Panel ── */}
-      <div style={{
-        width: '45%', background: '#111827',
-        display: 'flex', flexDirection: 'column',
-        alignItems: 'center', justifyContent: 'center',
-        padding: '60px 48px', position: 'relative', overflow: 'hidden'
-      }} className="hidden lg:flex">
+      <div className="login-left">
 
         {/* Subtle pattern */}
         <div style={{
@@ -91,11 +86,10 @@ const Login = () => {
       </div>
 
       {/* ── Right Panel (Form) ── */}
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px' }}>
+      <div className="login-right">
         <div style={{ width: '100%', maxWidth: '400px' }}>
 
-          {/* Mobile Logo */}
-          <div style={{ textAlign: 'center', marginBottom: '32px' }} className="lg:hidden">
+          <div className="mobile-logo-section" style={{ textAlign: 'center', marginBottom: '32px' }}>
             <img 
               src="/image.png" 
               alt="Logo" 
@@ -103,10 +97,8 @@ const Login = () => {
             />
             <h1 style={{ fontSize: '20px', fontFamily: "'Source Sans 3', sans-serif", color: '#111827', fontWeight: '700' }}>Admin Portal</h1>
           </div>
-
           {/* Form Card */}
-          <div style={{ background: 'white', borderRadius: '20px', padding: '40px 36px', boxShadow: '0 4px 24px rgba(0,0,0,0.07)', border: '1px solid #e5e7eb' }}>
-
+          <div className="login-form-card">
             {/* Header */}
             <div style={{ marginBottom: '32px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
