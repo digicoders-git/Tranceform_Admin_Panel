@@ -25,10 +25,7 @@ const Modal = ({ faq, onClose, onSave }) => {
     fontFamily: "'Source Sans 3', sans-serif", transition: 'border-color 0.2s',
   };
 
-  const fields = [
-    { label: 'Category', key: 'category', placeholder: 'e.g. General, Services, Pricing', icon: Tag },
-    { label: 'Question', key: 'question', placeholder: 'e.g. What is hypnotherapy?', icon: MessageCircle },
-  ];
+
 
   return (
     <div style={{ position: 'fixed', inset: 0, background: 'rgba(10,15,26,0.6)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', backdropFilter: 'blur(4px)' }}>
@@ -52,18 +49,44 @@ const Modal = ({ faq, onClose, onSave }) => {
 
         {/* Form */}
         <form onSubmit={submit} style={{ padding: '24px' }}>
-          {fields.map(({ label, key, placeholder, icon: Icon }) => (
-            <div key={key} style={{ marginBottom: '16px' }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#b8a090', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '7px' }}>
-                <Icon size={12} color="#5168AF" /> {label} *
-              </label>
-              <input type="text" value={form[key]} onChange={e => setForm({ ...form, [key]: e.target.value })} required
-                placeholder={placeholder} style={inputStyle}
-                onFocus={e => e.target.style.borderColor = '#5168AF'}
-                onBlur={e => e.target.style.borderColor = '#e8ddd4'}
-              />
-            </div>
-          ))}
+          {/* Category Dropdown */}
+          <div style={{ marginBottom: '16px' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#b8a090', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '7px' }}>
+              <Tag size={12} color="#5168AF" /> Category *
+            </label>
+            <select 
+              value={form.category} 
+              onChange={e => setForm({ ...form, category: e.target.value })} 
+              required
+              style={{ ...inputStyle, cursor: 'pointer', appearance: 'none' }}
+              onFocus={e => e.target.style.borderColor = '#5168AF'}
+              onBlur={e => e.target.style.borderColor = '#e8ddd4'}
+            >
+              <option value="" disabled>Select a category</option>
+              <option value="General">General</option>
+              <option value="Sessions & Process">Sessions & Process</option>
+              <option value="Treatments">Treatments</option>
+              <option value="Safety & Ethics">Safety & Ethics</option>
+              <option value="Cost & Booking">Cost & Booking</option>
+            </select>
+          </div>
+
+          {/* Question Input */}
+          <div style={{ marginBottom: '16px' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#b8a090', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '7px' }}>
+              <MessageCircle size={12} color="#5168AF" /> Question *
+            </label>
+            <input 
+              type="text" 
+              value={form.question} 
+              onChange={e => setForm({ ...form, question: e.target.value })} 
+              required
+              placeholder="e.g. What is hypnotherapy?" 
+              style={inputStyle}
+              onFocus={e => e.target.style.borderColor = '#5168AF'}
+              onBlur={e => e.target.style.borderColor = '#e8ddd4'}
+            />
+          </div>
 
           <div style={{ marginBottom: '24px' }}>
             <label style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#b8a090', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '7px' }}>
